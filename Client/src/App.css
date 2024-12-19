@@ -38,12 +38,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: white;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #8f7f06;
 }
 button:focus,
 button:focus-visible {
@@ -51,14 +53,36 @@ button:focus-visible {
 }
 .pageCont{
   height: inherit;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .pageCont>div:first-child{
   background: #E5E7EB;
+  color: #213547;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 150px;
+}
+.pageCont>div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+input{
+  border: 2px solid transparent;
+  outline-offset: 2px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  background: transparent;
+  border-bottom: 1px solid rgb(156 163 175);
 
 }
 
@@ -71,6 +95,6 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #FEF08A;
   }
 }
