@@ -1,8 +1,9 @@
 import {Link} from 'react-router-dom';
+import '../App.css';
 
 const Login = () => {
     return (
-        <div>
+        <div className='pageCont'>
             <div>
                 <h2>Sign In</h2>
                 <form>
