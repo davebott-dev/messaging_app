@@ -18,8 +18,14 @@ const Login = () => {
 
             </div>
             <div>
-                <h1>Welcome to ChatterApp!</h1>
-                <p>The premier anonymous chatroom for web users!</p>
+                <div className="grey one"></div>
+                <div className="title-card">
+                    <h1>Welcome to ChatterApp!</h1>
+                    <p>The premier anonymous chatroom for web users!</p>
+                </div>
+                <div className="yellow two"></div>
+                <div className="grey three"></div>
+                <div className="yellow four"></div>
             </div>
         </div>
     )

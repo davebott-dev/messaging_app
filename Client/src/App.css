@@ -68,6 +68,35 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+}
+.pageCont>div:nth-child(2)>div:not(.title-card) {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: -1;
+}
+.yellow{
+  background: #FEF08A;
+}
+.grey{
+  background:#9ca3af
+}
+.one{
+  height:7rem;
+  transform: translateX(60%);
+}
+.two {
+  height: 9rem;
+  transform: translateX(-75%);
+}
+.three {
+  height: 6rem;
+  transform: translateX(55%);
+}
+.four{
+  height: 5rem;
+  transform: translateX(-50%);
 }
 
 form{
@@ -98,3 +127,5 @@ input{
     background-color: #FEF08A;
   }
 }
+
+/*make responsive on multiple screen sizes*/
