@@ -85,18 +85,22 @@ button:focus-visible {
 .one{
   height:7rem;
   transform: translateX(60%);
+  animation: 4s infinite alternate slide-left;
 }
 .two {
   height: 9rem;
   transform: translateX(-75%);
+  animation: 3s infinite alternate slide-right1;
 }
 .three {
   height: 6rem;
   transform: translateX(55%);
+  animation: 5s infinite alternate slide-left;
 }
 .four{
   height: 5rem;
   transform: translateX(-50%);
+  animation: 4s infinite alternate slide-right2;
 }
 
 form{
@@ -113,6 +117,33 @@ input{
   background: transparent;
   border-bottom: 1px solid rgb(156 163 175);
 
+}
+
+@keyframes slide-left {
+  from{
+    transform: translateX(60%)
+  }
+  to{
+    transform: translateX(70%);
+  }
+}
+
+@keyframes slide-right1 {
+  from{
+    transform: translateX(-75%)
+  }
+  to{
+    transform: translateX(-80%);
+  }
+}
+
+@keyframes slide-right2 {
+  from{
+    transform: translateX(-50%)
+  }
+  to{
+    transform: translateX(-65%);
+  }
 }
 
 @media (prefers-color-scheme: light) {
