@@ -12,7 +12,7 @@ const Login = () => {
 
                     <label htmlFor="password">Password</label>
                     <input type="password" id = "password" name="password" />
-                    <button>Sign in</button>
+                    <button className="form-btn">Sign in</button>
                 </form>
                 <span>Don't have an account?<Link to="/signup"> Sign up</Link></span>
 

@@ -23,7 +23,7 @@ const Signup = () => {
                     <label htmlFor="confirm-password">Confirm Password</label>
                     <input type="password" id = "confirm-password" name="confirm-password" />
 
-                    <button>Sign in</button>
+                    <button className="form-btn">Sign in</button>
                 </form>
                 <span>Already have an account?<Link to="/login"> Sign in</Link></span>
 
