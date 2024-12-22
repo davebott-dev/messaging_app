@@ -99,9 +99,17 @@ nav{
   border-bottom: 1px solid #213547;
   padding: 20px;
 }
+.rootCont>nav>div:first-child>div:nth-child(2)>div{
+  cursor: pointer;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 .rootCont>nav>div:first-child>div:nth-child(2)>div,
 .rootCont>nav>div:nth-child(3)>div:nth-child(2)>div {
   font-size: 1.2rem;
+  
 }
 .rootCont>nav>div:nth-child(3)>div:first-child,
 .rootCont>nav>div:nth-child(3)>div:nth-child(2),
@@ -190,6 +198,20 @@ input:not(#index-input){
   line-height: 2rem;
   background: transparent;
   border-bottom: 1px solid rgb(156 163 175);
+}
+.highlighted {
+  border-radius: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  line-height: 1.75rem;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  font-family: inherit;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #FEF08A;
 }
 
 

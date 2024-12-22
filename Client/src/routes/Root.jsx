@@ -1,12 +1,15 @@
-import { Outlet,useNavigate } from "react-router";
-import {useState, useEffect} from "react";
-import { IconButton, Avatar } from "@mui/material";
+import { Outlet, useNavigate } from "react-router";
+import { useState, useEffect } from "react";
+import { IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/Github";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import AddIcon from '@mui/icons-material/Add';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import Chats from "../components/Chats";
+import Members from "../components/Members";
+import Friends from "../components/Friends";
 
 const Root = () => {
+  const [view, setView] = useState(0);
+
   return (
     <div className="rootCont">
       <nav>
@@ -18,25 +21,31 @@ const Root = () => {
             </IconButton>
           </div>
           <div>
-            <div>Chats</div>
-            <div>Friends</div>
-            <div>Members</div>
+            <div
+              onClick={() => setView(0)}
+              className={view == 0 ? "highlighted" : null}
+            >
+              Chats
+            </div>
+            <div
+              onClick={() => setView(1)}
+              className={view == 1 ? "highlighted" : null}
+            >
+              Friends
+            </div>
+            <div
+              onClick={() => setView(2)}
+              className={view == 2 ? "highlighted" : null}
+            >
+              Members
+            </div>
           </div>
         </div>
         <div></div>
         <div>
-          <div>
-            <input type="text" placeholder="New Chat Name" id="index-input"/>
-            <IconButton><AddIcon fontSize= "large"/></IconButton>
-          </div>
-          <div>
-            <div>Account</div>
-            <IconButton><ExpandLessIcon fontSize= "large"/></IconButton>
-          </div>
-          <div>
-            <Avatar>DB</Avatar>
-            <div>Name</div>
-          </div>
+          {view == 0 && <Chats />}
+          {view == 1 && <Friends />}
+          {view == 2 && <Members />}
         </div>
       </nav>
       <div>
