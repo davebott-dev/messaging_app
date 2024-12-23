@@ -1,5 +1,5 @@
 import { IconButton, Avatar } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 const Members = () => {
@@ -9,7 +9,16 @@ const Members = () => {
     return (
         <>
         <div>
-            hello world from Members
+            <input type="text" placeholder="Search Members" id="index-input"/>
+            <IconButton><SearchIcon fontSize= "large"/></IconButton>
+          </div>
+          <div>
+            <div>Account</div>
+            <IconButton><ExpandLessIcon fontSize= "large"/></IconButton>
+          </div>
+          <div>
+            <Avatar>DB</Avatar>
+            <div>Name</div>
           </div>
           </>
     )
