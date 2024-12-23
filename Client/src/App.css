@@ -63,6 +63,15 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.panel.closed{
+  background: rgba( 243, 244, 246, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
 }
 .pageCont{
   height: inherit;
@@ -70,10 +79,17 @@ nav{
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
 }
-.rootCont{
+.rootCont.open{
   height: inherit;
   display: grid;
   grid-template-columns: 1fr 2.5fr;
+  transition: all 0.5s ease;
+}
+.rootCont.closed{
+  height: inherit;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  transition: all 0.5s ease;
 }
 .rootCont>div{
   display: flex;

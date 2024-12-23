@@ -2,7 +2,7 @@ import { IconButton, Avatar } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-const Chats = () => {
+const Chats = ({isOpen}) => {
 
 
 
@@ -18,7 +18,7 @@ const Chats = () => {
           </div>
           <div>
             <Avatar>DB</Avatar>
-            <div>Name</div>
+            {isOpen? <div>Name</div>:null}
           </div>
           </>
     )

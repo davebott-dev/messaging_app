@@ -2,7 +2,7 @@ import { IconButton, Avatar } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-const Members = () => {
+const Members = ({isOpen}) => {
 
 
 
@@ -18,7 +18,7 @@ const Members = () => {
           </div>
           <div>
             <Avatar>DB</Avatar>
-            <div>Name</div>
+            {isOpen? <div>Name</div>:null}
           </div>
           </>
     )
