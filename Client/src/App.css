@@ -88,7 +88,7 @@ nav{
 .rootCont.closed{
   height: inherit;
   display: grid;
-  grid-template-columns: 1fr 10fr;
+  grid-template-columns: 1fr 9fr;
   transition: all 0.5s ease;
 }
 .rootCont>div{
@@ -139,6 +139,15 @@ nav{
 }
 .rootCont>nav>div:nth-child(3)>div:nth-child(2) {
   border-bottom: 1px solid #213547;
+  display: flex;
+  flex-direction: column;
+}
+.rootCont>nav>div:nth-child(3)>div:nth-child(2)>div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 .rootCont>nav>div:nth-child(3)>div:nth-child(3)>div {
   font-size: 1.5rem;

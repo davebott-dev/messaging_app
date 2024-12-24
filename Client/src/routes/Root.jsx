@@ -24,6 +24,3 @@ const Root = () => {
 };
 
 export default Root;
-
-//style the main page
-//similar style to whatsapp/messanger

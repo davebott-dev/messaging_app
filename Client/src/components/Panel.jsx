@@ -2,6 +2,7 @@ import {useState} from 'react';
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ChatIcon from '@mui/icons-material/Chat';
 import Chats from "../components/Chats";
 import Members from "../components/Members";
 import Friends from "../components/Friends";
@@ -13,12 +14,12 @@ const Panel = ({open,setOpen}) => {
         <nav className={`panel ${open ? "open": "closed"}`}>
         <div>
           <div>
-            {open&&<div>ChatterApp</div>}
+            {open? <div>ChatterApp</div>: <ChatIcon fontSize ="large"/>}
             <IconButton onClick={()=>setOpen(!open)}>
               {open ? <ArrowBackIosNewIcon />: <ArrowForwardIosIcon/>}
             </IconButton>
           </div>
-      <div>
+      {open ? <div>
             <div
               onClick={() => setView(0)}
               className={view == 0 ? "highlighted" : null}
@@ -37,7 +38,14 @@ const Panel = ({open,setOpen}) => {
             >
               Members
             </div>
-          </div>
+          </div> : 
+          <div>
+            {view ==0 ? <div className="highlighted">Chats</div>:
+            view ==1? <div className="highlighted">Friends</div>:
+            view ==2 ? <div className="highlighted">Members</div>: 
+            null}
+            </div>
+          }
         </div>
         <div></div>
         <div>
