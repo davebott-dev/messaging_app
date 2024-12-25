@@ -5,19 +5,19 @@ import './App.css';
 function Index() {
 
   return (
-    <>
-      <div className = "outlet">Chat Name</div>
-      <div>
-
-      
+    
+      <div className = "outlet">
+        <div >Chat Name</div>
+        <div>
+        
+        </div>
+        
+        <div>
+          <input type="text" id='msg-input'/>
+          <IconButton><SendIcon/></IconButton>
+        </div>
       </div>
-
-      
-      <div>
-        <input type="text" id='msg-input'/>
-        <IconButton><SendIcon/></IconButton>
-      </div>
-    </>
+    
   )
 }
 

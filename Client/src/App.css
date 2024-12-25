@@ -164,6 +164,18 @@ nav{
 .outlet{
   height: 100%;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.outlet>div:nth-child(3) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.outlet>div:nth-child(3)>input{
+  width: 100%;
 }
 .pageCont>div:first-child{
   background: #E5E7EB;
