@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from './Accordion';
+import "../App.css";
 
 const Members = ({ isOpen }) => {
   const [active, setActive] = useState(false);

@@ -6,6 +6,8 @@ import ChatIcon from '@mui/icons-material/Chat';
 import Chats from "../components/Chats";
 import Members from "../components/Members";
 import Friends from "../components/Friends";
+import "../App.css";
+
 
 const Panel = ({open,setOpen}) => {
  const [view, setView] = useState(0);

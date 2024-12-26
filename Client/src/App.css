@@ -142,7 +142,7 @@ nav{
   display: flex;
   flex-direction: column;
 }
-.rootCont>nav>div:nth-child(3)>div:nth-child(2)>div{
+.rootCont>nav>div:nth-child(3)>div:nth-child(2)>div:first-child{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -228,13 +228,19 @@ form{
   flex-direction: column;
   gap: 25px;
 }
-input:not(#index-input){
+input:not(#index-input):not(#msg-input){
   border: 2px solid transparent;
   outline-offset: 2px;
   font-size: 1.5rem;
   line-height: 2rem;
   background: transparent;
   border-bottom: 1px solid rgb(156 163 175);
+}
+#msg-input{
+  background: #E5E7EB;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
 }
 .highlighted {
   border-radius: 8px;
@@ -250,7 +256,37 @@ input:not(#index-input){
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #FEF08A;
 }
+.account-accordion{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #E5E7EB;
+  padding: 20px;
+  font-weight: bold;
+  gap: 15px;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.account-accordion.open{
+  height: 100%;
+  opacity: 1;
 
+}
+.account-accordion.closed{
+  opacity: 0; 
+  height: 0;
+}
+.account-accordion>div{
+  cursor: pointer;
+  padding: 10px;
+  color: red;
+}
+.account-accordion>div:hover,
+.account-accordion>a:hover{
+  background: #FEF08A;
+}
 
 @keyframes slide-left {
   from{

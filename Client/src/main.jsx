@@ -5,6 +5,7 @@ import Index from './Index';
 import Login from './routes/Login';
 import Root from './routes/Root';
 import Signup from './routes/Signup';
+import Profile from './routes/Profile';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Index/>,
-      }
+      },
     ]
   },
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <Signup/>,
+  },
+  {
+    path:'/profile/:profileId',
+    element: <Profile/>,
   }
 ])
 
