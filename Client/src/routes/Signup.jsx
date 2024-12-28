@@ -3,6 +3,23 @@ import '../App.css';
 
 const Signup = () => {
 
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+
+        const email = e.target.email.value;
+        const username = e.target.username.value;
+        const password= e.target.password.value;
+        const name = e.target.name.value;
+
+        try{
+            const response = await fetch('http://localhost:8080/api/sign-up')
+            //finish building this fetch action
+        }catch(err) {
+            console.error(err)
+        }
+
+
+    }
     return (
         <div className='pageCont'>
             <div>
