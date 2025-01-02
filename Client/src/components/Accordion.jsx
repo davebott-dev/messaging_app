@@ -9,11 +9,17 @@ const Accordion = ({ active }) => {
       alert("your account has been deleted");
     }
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    window.location.reload();
+  }
   return  (
     <div
       className={`account-accordion ${active ? 'open' : 'closed'}`}
     >
       <Link to="profile/123">View Profile</Link>
+      <span onClick={handleLogout}>Log out</span>
       <div onClick={handleDeleteAction}>Delete Profile</div>
     </div>
   ) 

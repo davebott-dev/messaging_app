@@ -7,8 +7,8 @@ const apiRoute= require('./routes/api');
 const app = express();
 app.use(passport.initialize());
 app.use(cors({
-    origin: 'http://localhost:5173',
-    methods: ['GET','POST', 'PUT', 'DELETE'],
+    origin:'http://localhost:5173',
+    methods: ['GET','POST','PUT','DELETE'],
     credentials: true,
 }));
 app.use(express.urlencoded({extended:true}));

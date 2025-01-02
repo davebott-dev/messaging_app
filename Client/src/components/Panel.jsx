@@ -9,7 +9,7 @@ import Friends from "../components/Friends";
 import "../App.css";
 
 
-const Panel = ({open,setOpen}) => {
+const Panel = ({open,setOpen,user}) => {
  const [view, setView] = useState(0);
 
     return (
@@ -51,9 +51,9 @@ const Panel = ({open,setOpen}) => {
         </div>
         <div></div>
         <div>
-          {view == 0 && <Chats isOpen={open} />}
-          {view == 1 && <Friends isOpen={open} />}
-          {view == 2 && <Members isOpen={open}/>}
+          {view == 0 && <Chats isOpen={open} user={user} />}
+          {view == 1 && <Friends isOpen={open} user={user}/>}
+          {view == 2 && <Members isOpen={open} user={user}/>}
         </div>
       </nav>
     )

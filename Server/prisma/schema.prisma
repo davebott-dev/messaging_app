@@ -31,9 +31,18 @@ model Profile {
 }
 
 model Message {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  msg       String?
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
+  id         String    @id @default(uuid())
+  createdAt  DateTime  @default(now())
+  msg        String?
+  user       User      @relation(fields: [userId], references: [id])
+  userId     String
+  chatroom   Chatroom? @relation(fields: [chatroomId], references: [id])
+  chatroomId String?
 }
+
+model Chatroom {
+  id       String    @id @default(uuid())
+  messages Message[]
+}
+
+//use different chatroom id to send messages to different chats

@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from './Accordion';
 import "../App.css";
 
-const Chats = ({ isOpen }) => {
+const Chats = ({ isOpen, user }) => {
   const [active, setActive] = useState(false);
   
   return (
@@ -37,8 +37,8 @@ const Chats = ({ isOpen }) => {
         <Accordion active={active} isOpen={isOpen}/>
       </div>
       <div>
-        <Avatar sx={{ width: 50, height: 50 }}>DB</Avatar>
-        {isOpen ? <div>Name</div> : null}
+        <Avatar sx={{ width: 50, height: 50 }}>{user.name?.charAt(0)}</Avatar>
+        {isOpen ? <div>{user.name}</div> : null}
       </div>
     </>
   );
