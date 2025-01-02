@@ -26,3 +26,4 @@ const Accordion = ({ active }) => {
 };
 
 export default Accordion;
+

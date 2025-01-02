@@ -40,7 +40,7 @@ router.post('/log-in', async(req,res)=> {
             },
         });
         if(!user) {
-            return res.status(400).json({
+            return res.json({
                 success:false,
                 msg:"User Not Found",
             });
@@ -48,7 +48,7 @@ router.post('/log-in', async(req,res)=> {
 
         const isMatch = await bcrypt.compare(password, user.password);
         if(!isMatch) {
-            return res.status(400).json({
+            return res.json({
                 success:false,
                 msg:"Incorrect Password",
             });

@@ -45,3 +45,7 @@ const Root = () => {
 };
 
 export default Root;
+
+//work on index (outlet) and panel functionality with backend 
+//messages getting posted to correct chat room..
+//how messages appear on screen for users...etc
