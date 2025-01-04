@@ -42,7 +42,9 @@ model Message {
 
 model Chatroom {
   id       String    @id @default(uuid())
+  title    String    @unique
   messages Message[]
 }
 
 //use different chatroom id to send messages to different chats
+// see if the relation allows adds to chatroom array by itself or if i have to connect

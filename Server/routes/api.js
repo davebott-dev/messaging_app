@@ -70,6 +70,8 @@ router.post('/log-in', async(req,res)=> {
     }
 });
 router.get("/", passport.authenticate('jwt', {session:false}), controller.getUser);
+router.get('/chats',controller.getChats);
+router.get('/users', controller.getUsers);
 
 
 module.exports = router;

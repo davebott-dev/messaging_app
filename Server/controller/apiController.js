@@ -60,5 +60,32 @@ module.exports = {
         }
 
     },
+    getUsers:async(req,res) => {
+        const content = await prisma.user.findMany({
+            include:{
+                profile:true,
+                messages:{
+                    include:{
+                        chatroom:true,
+                    }
+                }
+            }
+        });
+        res.json({
+            success:true,
+            content,
+        })
+    },
+    getChats: async(req,res) => {
+        const content = await prisma.chatroom.findMany({
+            include:{
+                messages:true,
+            }
+        });
+        res.json({
+            success:true,
+            content,
+        })
+    }
 
 }
