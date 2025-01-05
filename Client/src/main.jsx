@@ -6,6 +6,7 @@ import Login from './routes/Login';
 import Root from './routes/Root';
 import Signup from './routes/Signup';
 import Profile from './routes/Profile';
+import Chatroom from './routes/Chatroom';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Index/>,
+      },
+      {
+        path:'/:chatroomId',
+        element: <Chatroom/>,
       },
     ]
   },

@@ -8,20 +8,12 @@ function Index() {
   return (
    
     <div className="outlet">
-      <div>Chat Name</div>
-      <div></div>
-      <div>
-        <input
-          type="text"
-          id="msg-input"
-          placeholder="Let the world see your message..."
-        />
-        <IconButton color="primary">
-          <SendIcon />
-        </IconButton>
-      </div>
+      <p>Choose/Create a chatroom...</p>
     </div>
   );
 }
 
 export default Index;
+
+
+//add arrow animation 

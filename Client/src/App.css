@@ -169,12 +169,12 @@ nav{
   justify-content: space-between;
   align-items: center;
 }
-.outlet>div:nth-child(3) {
+.outlet>form {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-.outlet>div:nth-child(3)>input{
+.outlet>form>input{
   width: 100%;
 }
 .pageCont>div:first-child{
@@ -223,7 +223,7 @@ nav{
   transform: translateX(-50%);
   animation: 4s infinite alternate slide-right2;
 }
-form{
+form:not(#idx-form){
   display: flex;
   flex-direction: column;
   gap: 25px;

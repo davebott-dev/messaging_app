@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -10,7 +11,8 @@ import "../App.css";
 
 const Panel = ({ open, setOpen, user }) => {
   const [view, setView] = useState(0);
-  const [contents,setContent] = useState(null);
+  const [contents, setContent] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,12 +20,12 @@ const Panel = ({ open, setOpen, user }) => {
         view == 0
           ? await fetch("http://localhost:8080/api/chats")
           : await fetch("http://localhost:8080/api/users");
-          const data = await response.json();
-          console.log(data);
-          setContent(data);
+      const data = await response.json();
+      console.log(data);
+      setContent(data);
     };
     fetchData();
-  },[view]);
+  }, [view]);
 
   return (
     <nav className={`panel ${open ? "open" : "closed"}`}>
@@ -68,14 +70,18 @@ const Panel = ({ open, setOpen, user }) => {
         )}
       </div>
       <div id="content">
-        
-       {view ==0 ? contents?.content.map((el,index)=>(
-        <div key={index}>{el.title}</div>
-       )): 
-       contents?.content.map((el,index)=>(
-        <div key={index}>{el.username}</div>
-       )) 
-       }
+        {view == 0
+          ? contents?.content.map((el, index) =>{
+              const handleLinkNavigation= ()=> {
+                navigate('/'+el.id);
+              }
+            return (
+              <div onClick={handleLinkNavigation} key={index} >{el.title}</div>
+            )
+          })
+          : contents?.content.map((el, index) => (
+              <div key={index}>{el.username}</div>
+            ))}
       </div>
       <div>
         {view == 0 && <Chats isOpen={open} user={user} />}

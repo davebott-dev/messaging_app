@@ -32,7 +32,7 @@ const Root = () => {
     <div className={open? "rootCont open": "rootCont closed"}>
      <Panel open ={open} setOpen={setOpen} user ={user}/>
       <div>
-        <Outlet/>
+        <Outlet context = {[user]}/>
         <footer className="item-c">
           <div>Made with ❤️ by David Bottenberg</div>
           <a href="https://github.com/davebott-dev">

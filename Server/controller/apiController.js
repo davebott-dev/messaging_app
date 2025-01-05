@@ -17,6 +17,23 @@ module.exports = {
         });
         res.json(user);
     },
+    getChat: async(req,res)=> {
+        const {chatroomId} = req.params;
+
+        const chatroom = await prisma.chatroom.findUnique({
+            where:{
+                id:chatroomId,
+            },
+            include:{
+                messages:true,
+            }
+        });
+
+        res.json({
+            success:true,
+            chatroom,
+        })
+    },
     createUser: async(req,res)=> {
         const {username,email,name,password:prev} = req.body;
 
@@ -86,6 +103,20 @@ module.exports = {
             success:true,
             content,
         })
-    }
+    },
+    createComment: async(req,res) => {
+        const {message, userId} = req.body;
+        const {chatroomId} = req.params;
+
+        const comment = await prisma.message.create({
+            data:{
+                msg:message,
+                userId,
+                chatroomId,
+            }
+        });
+
+        res.redirect('http://localhost:5173/'+chatroomId);
+    },
 
 }
