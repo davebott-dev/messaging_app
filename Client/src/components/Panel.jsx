@@ -25,7 +25,7 @@ const Panel = ({ open, setOpen, user }) => {
       setContent(data);
     };
     fetchData();
-  }, [view]);
+  }, [view,contents]);
 
   return (
     <nav className={`panel ${open ? "open" : "closed"}`}>
@@ -76,7 +76,10 @@ const Panel = ({ open, setOpen, user }) => {
                 navigate('/'+el.id);
               }
             return (
-              <div onClick={handleLinkNavigation} key={index} >{el.title}</div>
+              <div key={index} className="chat-card">
+                <div onClick={handleLinkNavigation}>{el.title}</div>
+                <button>Delete</button>
+                </div>
             )
           })
           : contents?.content.map((el, index) => (

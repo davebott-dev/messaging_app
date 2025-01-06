@@ -8,24 +8,46 @@ import "../App.css";
 
 const Chats = ({ isOpen, user }) => {
   const [active, setActive] = useState(false);
+  const token = localStorage.getItem('authToken');
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const chatName = e.target.chatName.value;
+
+    try{
+      const response = await fetch('http://localhost:8080/api/chats',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({chatName}),
+      });
+      const data = await response.json();
+      console.log("data",data);
+    }catch(err) {
+      console.error(err);
+    }
+  }
   
   return (
     <>
-      <div>
+      <form className = 'idx-form' onSubmit= {handleSubmit}>
         {isOpen ? (
           <input
             type="text"
             placeholder="New Chat Name"
+            name= "chatName"
             id="index-input"
             required
           />
         ) : (
           <div>New Chat</div>
         )}
-        <IconButton>
+        <IconButton type = "submit">
           <AddIcon fontSize="large" />
         </IconButton>
-      </div>
+      </form>
       <div>
         <div>
           <div>Account</div>

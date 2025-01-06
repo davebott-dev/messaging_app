@@ -54,7 +54,7 @@ function Chatroom() {
           )
         })}
       </div>
-      <form id = "idx-form" onSubmit={handleSubmit}>
+      <form className = "idx-form" onSubmit={handleSubmit}>
         <input
           type="text"
           id="msg-input"

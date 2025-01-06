@@ -118,5 +118,16 @@ module.exports = {
 
         res.redirect('http://localhost:5173/'+chatroomId);
     },
+    createChat: async(req,res) => {
+        const {chatName} = req.body;
+
+        const chat = await prisma.chatroom.create({
+            data:{
+                title: chatName,
+            }
+        });
+
+        res.redirect('http://localhost:5173/');
+    },
 
 }

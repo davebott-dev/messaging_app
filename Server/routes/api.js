@@ -86,6 +86,7 @@ router.post(
   controller.createComment
 );
 router.get("/chats", controller.getChats);
+router.post("/chats", passport.authenticate('jwt',{session:false}), controller.createChat);
 router.get("/users", controller.getUsers);
 
 module.exports = router;
