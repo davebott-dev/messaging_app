@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -13,6 +13,7 @@ const Panel = ({ open, setOpen, user }) => {
   const [view, setView] = useState(0);
   const [contents, setContent] = useState(null);
   const navigate = useNavigate();
+  const token = localStorage.getItem("authToken");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,7 @@ const Panel = ({ open, setOpen, user }) => {
       setContent(data);
     };
     fetchData();
-  }, [view,contents]);
+  }, [view]);
 
   return (
     <nav className={`panel ${open ? "open" : "closed"}`}>
@@ -71,17 +72,43 @@ const Panel = ({ open, setOpen, user }) => {
       </div>
       <div id="content">
         {view == 0
-          ? contents?.content.map((el, index) =>{
-              const handleLinkNavigation= ()=> {
-                navigate('/'+el.id);
-              }
-            return (
-              <div key={index} className="chat-card">
-                <div onClick={handleLinkNavigation}>{el.title}</div>
-                <button>Delete</button>
+          ? contents?.content.map((el, index) => {
+              const handleLinkNavigation = () => {
+                navigate("/" + el.id);
+              };
+              const handleDelete = async (e) => {
+                e.preventDefault();
+                try {
+                  const response = await fetch(
+                    "http://localhost:8080/api/chats/delete/" + el.id,
+                    {
+                      method: "POST",
+                      headers: {
+                        Authorization: `Bearer ${token}`,
+                      },
+                    }
+                  );
+                  const data = await response.json();
+                  if(data.success) {
+                    navigate('/');
+                  } else {
+                    console.log('there was an error');
+                  }
+                } catch (err) {
+                  console.error(err);
+                } finally{
+                  window.location.reload();
+                }
+              };
+              return (
+                <div key={index} className="chat-card">
+                  <div onClick={handleLinkNavigation}>{el.title}</div>
+                  <form onSubmit={handleDelete}>
+                    <button type="submit">Delete</button>
+                  </form>
                 </div>
-            )
-          })
+              );
+            })
           : contents?.content.map((el, index) => (
               <div key={index}>{el.username}</div>
             ))}

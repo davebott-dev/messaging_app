@@ -86,7 +86,16 @@ router.post(
   controller.createComment
 );
 router.get("/chats", controller.getChats);
-router.post("/chats", passport.authenticate('jwt',{session:false}), controller.createChat);
+router.post(
+  "/chats",
+  passport.authenticate("jwt", { session: false }),
+  controller.createChat
+);
+router.post(
+  "/chats/delete/:chatroomId",
+  passport.authenticate("jwt", { session: false }),
+  controller.deleteChat
+);
 router.get("/users", controller.getUsers);
 
 module.exports = router;

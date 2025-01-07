@@ -25,6 +25,11 @@ const Chats = ({ isOpen, user }) => {
       });
       const data = await response.json();
       console.log("data",data);
+      if(data.success) {
+        window.location.reload();
+      } else {
+        console.log('choose a different chat name')
+      }
     }catch(err) {
       console.error(err);
     }
