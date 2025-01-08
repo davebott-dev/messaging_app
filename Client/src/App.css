@@ -302,6 +302,12 @@ input:not(#index-input):not(#msg-input){
   align-items: center;
   border-bottom: 1px solid #213547;
 }
+.chat-title {
+  cursor: pointer;
+}
+.bold{
+  font-weight: bolder;
+}
 
 @keyframes slide-left {
   from{

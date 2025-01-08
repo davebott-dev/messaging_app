@@ -12,6 +12,7 @@ import "../App.css";
 const Panel = ({ open, setOpen, user }) => {
   const [view, setView] = useState(0);
   const [contents, setContent] = useState(null);
+  const [bold, setBold] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
 
@@ -75,6 +76,7 @@ const Panel = ({ open, setOpen, user }) => {
           ? contents?.content.map((el, index) => {
               const handleLinkNavigation = () => {
                 navigate("/" + el.id);
+                setBold(index);
               };
               const handleDelete = async (e) => {
                 e.preventDefault();
@@ -89,20 +91,27 @@ const Panel = ({ open, setOpen, user }) => {
                     }
                   );
                   const data = await response.json();
-                  if(data.success) {
-                    navigate('/');
+                  if (data.success) {
+                    navigate("/");
                   } else {
-                    console.log('there was an error');
+                    console.log("there was an error");
                   }
                 } catch (err) {
                   console.error(err);
-                } finally{
+                } finally {
                   window.location.reload();
                 }
               };
               return (
                 <div key={index} className="chat-card">
-                  <div onClick={handleLinkNavigation}>{el.title}</div>
+                  <div
+                    onClick={handleLinkNavigation}
+                    className={
+                      bold === index ? "chat-title bold" : "chat-title"
+                    }
+                  >
+                    {el.title}
+                  </div>
                   <form onSubmit={handleDelete}>
                     <button type="submit">Delete</button>
                   </form>

@@ -97,5 +97,6 @@ router.post(
   controller.deleteChat
 );
 router.get("/users", controller.getUsers);
+router.get('/profile/:profileId', controller.getProfile);
 
 module.exports = router;

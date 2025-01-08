@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { IconButton, Avatar } from "@mui/material";
+import { IconButton, Avatar, Snackbar, Alert } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,7 +8,15 @@ import "../App.css";
 
 const Chats = ({ isOpen, user }) => {
   const [active, setActive] = useState(false);
+  const [open,setOpen] = useState(false);
   const token = localStorage.getItem('authToken');
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -28,7 +36,7 @@ const Chats = ({ isOpen, user }) => {
       if(data.success) {
         window.location.reload();
       } else {
-        console.log('choose a different chat name')
+        setOpen(true);
       }
     }catch(err) {
       console.error(err);
@@ -52,6 +60,11 @@ const Chats = ({ isOpen, user }) => {
         <IconButton type = "submit">
           <AddIcon fontSize="large" />
         </IconButton>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="error">
+                Choose a different chat name...
+              </Alert>
+          </Snackbar>
       </form>
       <div>
         <div>
@@ -61,7 +74,7 @@ const Chats = ({ isOpen, user }) => {
             <ExpandMoreIcon fontSize="large"/>}
           </IconButton>
         </div>
-        <Accordion active={active} isOpen={isOpen}/>
+        <Accordion active={active} isOpen={isOpen} user={user}/>
       </div>
       <div>
         <Avatar sx={{ width: 50, height: 50 }}>{user.name?.charAt(0)}</Avatar>

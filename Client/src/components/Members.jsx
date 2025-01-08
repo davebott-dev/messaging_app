@@ -11,7 +11,7 @@ const Members = ({ isOpen,user }) => {
 
   return (
     <>
-      <div>
+      <form className = 'idx-form'>
         {isOpen ? (
           <input type="text" placeholder="Search Members" id="index-input" />
         ) : (
@@ -20,7 +20,7 @@ const Members = ({ isOpen,user }) => {
         <IconButton>
           <SearchIcon fontSize="large" />
         </IconButton>
-      </div>
+      </form>
       <div>
         <div>
           <div>Account</div>
@@ -29,7 +29,7 @@ const Members = ({ isOpen,user }) => {
             <ExpandMoreIcon fontSize="large"/>}
           </IconButton>
         </div>
-        <Accordion active={active}/>
+        <Accordion active={active} user={user}/>
       </div>
       <div>
         <Avatar sx={{ width: 50, height: 50 }}>{user.name?.charAt(0)}</Avatar>

@@ -160,4 +160,20 @@ module.exports = {
     })
 }
   },
+  getProfile: async(req,res)=> {
+    const {profileId} = req.params;
+
+    const profile = await prisma.profile.findUnique({
+      where: {
+        id: profileId,
+      },
+      include:{
+        user: true,
+      }
+    });
+    res.json({
+      success:true,
+      profile,
+    })
+  }
 };
