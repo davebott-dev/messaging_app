@@ -168,7 +168,11 @@ module.exports = {
         id: profileId,
       },
       include:{
-        user: true,
+        user: {
+          include: {
+            messages: true,
+          }
+        }
       }
     });
     res.json({

@@ -9,6 +9,16 @@ import "../App.css";
 const Members = ({ isOpen,user }) => {
   const [active, setActive] = useState(false);
 
+  const handleInitials = (name) => {
+    let init = "";
+    let arr = name?.split(" ");
+
+    for (let i = 0; i < arr?.length; i++) {
+      init += arr[i].charAt(0);
+    }
+    return init;
+  };
+
   return (
     <>
       <form className = 'idx-form'>
@@ -32,7 +42,7 @@ const Members = ({ isOpen,user }) => {
         <Accordion active={active} user={user}/>
       </div>
       <div>
-        <Avatar sx={{ width: 50, height: 50 }}>{user.name?.charAt(0)}</Avatar>
+        <Avatar sx={{ width: 50, height: 50 }}>{handleInitials(user?.name)}</Avatar>
         {isOpen ? <div>{user.name}</div> : null}
       </div>
     </>
