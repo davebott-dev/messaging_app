@@ -132,3 +132,5 @@ const Panel = ({ open, setOpen, user }) => {
 };
 
 export default Panel;
+
+//take off friends tab

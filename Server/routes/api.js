@@ -97,6 +97,11 @@ router.post(
   controller.deleteChat
 );
 router.get("/users", controller.getUsers);
-router.get('/profile/:profileId', controller.getProfile);
+router.get("/profile/:profileId", controller.getProfile);
+router.post(
+  "/delete/:userId",
+  passport.authenticate("jwt", { session: false }),
+  controller.deleteUser
+);
 
 module.exports = router;

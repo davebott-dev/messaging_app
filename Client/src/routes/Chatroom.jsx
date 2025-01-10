@@ -70,3 +70,5 @@ function Chatroom() {
 }
 
 export default Chatroom;
+
+//style the chatroom

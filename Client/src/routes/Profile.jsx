@@ -31,6 +31,9 @@ const Profile = () => {
 
   return (
     <div>
+      <div>
+      <a href="/"><button>Return</button></a>
+      </div>
       <Avatar sx={{ width: 100, height: 100 }}>
         {handleInitials(profile?.profile.user.name)}
       </Avatar>
@@ -38,6 +41,7 @@ const Profile = () => {
       <div>username: {profile?.profile.user.username}</div>
       <div>bio: {profile?.profile.bio}</div>
       <textarea name="bio" id="bio" placeholder="update bio..."></textarea>
+      <button>Update</button>
       <div>
         This user has created {profile?.profile.user.messages.length} messages
         in total

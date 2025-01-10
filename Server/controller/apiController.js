@@ -179,5 +179,26 @@ module.exports = {
       success:true,
       profile,
     })
+  },
+  deleteUser: async(req,res) => {
+    const {userId} = req.params;
+
+    try{
+      const user = await prisma.user.delete({
+      where: {
+        id: userId,
+      }
+    });
+    res.json({
+      success:true,
+    })
+  } catch(err) {
+    res.json({
+      success:false,
+      err,
+    })
+  }
   }
 };
+
+//fix the issue of multiple users logging in as the same person

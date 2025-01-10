@@ -34,7 +34,7 @@ model Message {
   id         String    @id @default(uuid())
   createdAt  DateTime  @default(now())
   msg        String?
-  user       User      @relation(fields: [userId], references: [id])
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId     String
   chatroom   Chatroom? @relation(fields: [chatroomId], references: [id], onDelete: Cascade)
   chatroomId String?

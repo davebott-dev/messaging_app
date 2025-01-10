@@ -3,11 +3,30 @@ import "../App.css";
 
 const Accordion = ({ active, user }) => {
   const profileLink = "http://localhost:5173/profile/" + user.profile?.id;
-  const handleDeleteAction = () => {
+  const token = localStorage.getItem("authToken");
+
+  const handleDeleteAction = async() => {
     let result = confirm("Do you really want to delete your account?");
 
     if (result) {
-      alert("your account has been deleted");
+      const response = await fetch("http://localhost:8080/api/delete/"+user.id,{
+        method:"POST",
+        headers:{
+          Authorization: `Bearer ${token}`
+        },
+      });
+      if(response.ok) {
+        const data = await response.json();
+        if(data.success) {
+          console.log("deleted",data);
+          localStorage.removeItem("authToken");
+          window.location.reload();
+        } else {
+          console.error("user was not deleted", data.err);
+        }
+      } else {
+        console.error("invalid response");
+      }
     }
   };
 
