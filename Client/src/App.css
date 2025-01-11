@@ -166,7 +166,6 @@ nav{
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 .outlet>form {
@@ -307,6 +306,40 @@ input:not(#index-input):not(#msg-input){
 }
 .bold{
   font-weight: bolder;
+}
+.chatroom-card {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;  border-radius: 10px;
+  padding: 15px;
+}
+.chatroom-card>div:first-child{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-between;
+}
+.chatroom-card>div:nth-child(2) {
+  max-width: 80%;
+  font-size: large;
+}
+.outlet>div:first-child{
+  height: 10%;
+}
+.outlet>div+div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.blue {
+  background: skyblue;
+}
+.grey{
+  background: gray;
 }
 
 @keyframes slide-left {

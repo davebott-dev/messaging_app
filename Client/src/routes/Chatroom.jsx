@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {useParams,useOutletContext} from 'react-router-dom';
 import { IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import moment from "moment";
 import "../App.css";
 
 function Chatroom() {
@@ -50,7 +51,13 @@ function Chatroom() {
         {content?.chatroom.messages.map((el,index)=>{
 
           return (
-            <div key={index}>{el.msg}</div>
+            <div key={index} className= {el.user.id==user.id ?  "chatroom-card blue" : "chatroom-card grey"}>
+              <div>
+                <div><strong>{el.user.username}</strong></div>
+                <div><em>{moment(el.createdAt).format('MMM do YYYY, h:mm a')}</em></div>
+              </div>
+              <div >{el.msg}</div>
+            </div>
           )
         })}
       </div>
@@ -70,5 +77,3 @@ function Chatroom() {
 }
 
 export default Chatroom;
-
-//style the chatroom

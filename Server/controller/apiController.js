@@ -25,7 +25,11 @@ module.exports = {
         id: chatroomId,
       },
       include: {
-        messages: true,
+        messages: {
+          include: {
+            user: true,
+          }
+        }
       },
     });
 
