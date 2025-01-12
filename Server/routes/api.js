@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -102,6 +103,11 @@ router.post(
   "/delete/:userId",
   passport.authenticate("jwt", { session: false }),
   controller.deleteUser
+);
+router.post(
+  "/profile/:profileId/update",
+  passport.authenticate("jwt", { session: false }),
+  controller.updateBio
 );
 
 module.exports = router;

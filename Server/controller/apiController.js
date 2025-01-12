@@ -202,7 +202,29 @@ module.exports = {
       err,
     })
   }
+  },
+  updateBio: async(req,res) => {
+    const {profileId} = req.params;
+    const {bio} = req.body;
+
+    try{
+      const userBio = await prisma.profile.update({
+        where:{
+          id:profileId,
+        },
+        data:{
+          bio,
+        }
+      });
+      res.json({
+        success:true,
+        userBio,
+      })
+    } catch(err) {
+      res.json({
+        success:false,
+        err,
+      })
+    }
   }
 };
-
-//fix the issue of multiple users logging in as the same person
