@@ -84,21 +84,24 @@ module.exports = {
       });
     }
   },
-  getUsers: async (req, res) => {
-    const content = await prisma.user.findMany({
-      include: {
-        profile: true,
-        messages: {
-          include: {
-            chatroom: true,
+  getUsers: async (req, res) => {  
+      const content = await prisma.user.findMany({
+        include: {
+          profile: true,
+          messages: {
+            include: {
+              chatroom: true,
+            },
           },
         },
-      },
-    });
-    res.json({
-      success: true,
-      content,
-    });
+      });
+      res.json({
+        success: true,
+        content,
+      });
+
+    
+ 
   },
   getChats: async (req, res) => {
     const content = await prisma.chatroom.findMany({

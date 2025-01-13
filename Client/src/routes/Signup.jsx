@@ -21,8 +21,10 @@ const Signup = () => {
     const email = e.target.email.value;
     const username = e.target.username.value;
     const password = e.target.password.value;
+    const confirmPassword = e.target.confirm-password.value;
     const name = e.target.name.value;
 
+    if(password===confirmPassword) {    
     try {
       const response = await fetch("http://localhost:8080/api/sign-up", {
         method: "POST",
@@ -46,6 +48,10 @@ const Signup = () => {
       setError("An Error Occured During Login...");
       setOpen(true);
     }
+  } else {
+    setOpen(true);
+    setError("Passwords Do Not Match!!!!")
+  }
   };
   return (
     <div className="pageCont">

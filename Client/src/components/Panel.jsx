@@ -13,10 +13,14 @@ const Panel = ({ open, setOpen, user }) => {
   const [view, setView] = useState(0);
   const [contents, setContent] = useState(null);
   const [bold, setBold] = useState(0);
+  const [search, setSearch] = useState(null);
   const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
 
   useEffect(() => {
+  setSearch(new URLSearchParams(window.location.search).get('username'));
+    console.log(search);
+
     const fetchData = async () => {
       const response =
         view == 0
@@ -27,7 +31,7 @@ const Panel = ({ open, setOpen, user }) => {
       setContent(data);
     };
     fetchData();
-  }, [view]);
+  }, [search,view]);
 
   return (
     <nav className={`panel ${open ? "open" : "closed"}`}>
@@ -119,8 +123,8 @@ const Panel = ({ open, setOpen, user }) => {
               );
             })
           : contents?.content.map((el, index) => (
-              <div key={index}>{el.username}</div>
-            ))}
+               search===null? <div key={index}>{el.username}</div>
+            : search !==null && el.username ===search? <div> {el.username}</div> : null ))}
       </div>
       <div>
         {view == 0 && <Chats isOpen={open} user={user} />}
@@ -132,5 +136,3 @@ const Panel = ({ open, setOpen, user }) => {
 };
 
 export default Panel;
-
-//take off friends tab

@@ -45,6 +45,3 @@ const Root = () => {
 };
 
 export default Root;
-
-//incorporate search feature in friends/members tab
-//maybe incorporate viewing others profile

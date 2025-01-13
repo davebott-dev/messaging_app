@@ -21,13 +21,13 @@ const Friends = ({ isOpen,user }) => {
 
   return (
     <>
-      <form className = 'idx-form'>
+      <form className = 'idx-form' >
         {isOpen ? (
-          <input type="text" placeholder="Search Friends" id="index-input" />
+          <input type="text" name = 'username' placeholder="Search Friends" id="index-input" />
         ) : (
           <div>Search Friends</div>
         )}
-        <IconButton>
+        <IconButton type="submit">
           <SearchIcon fontSize="large" />
         </IconButton>
       </form>
